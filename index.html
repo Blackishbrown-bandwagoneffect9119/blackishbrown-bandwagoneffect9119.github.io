@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADITYA KUMAR | Maintenance</title>
+    <style>
+        /* Base Styles and Colors (Matching the provided example) */
+        :root {
+            --bg-color: #f7d084; /* Soft yellow-orange background */
+            --main-font-color: #000000;
+            --kinetic-pill-color: #ffffff;
+            --main-font: 'Inter', system-ui, -apple-system, sans-serif;
+            --lyrics-font: 'Arial', sans-serif;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Lock the screen during maintenance */
+            background-color: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--main-font);
+            color: var(--main-font-color);
+        }
+
+        /* 1. KINETIC NAME ANIMATION CONTAINER */
+        /* Inspired by image_44.png, adapting "Colin Moody" to "Aditya Kumar" */
+        .name-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5vh;
+            margin-bottom: 6vh;
+        }
+
+        .name-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5vw;
+        }
+
+        .name-text {
+            font-size: clamp(3rem, 7vw, 9rem);
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 1.1;
+            display: block;
+        }
+
+        /* 2. THE KINETIC SWINGING PILLS/BALLS */
+        .kinetic-element {
+            height: clamp(3rem, 7vw, 9rem); /* Matches font size height */
+            background-color: var(--kinetic-pill-color);
+            border-radius: 999px; /* Pill shape */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            /* Apply the swing animation (see @keyframes below) */
+            animation: swingingPill 3s ease-in-out infinite alternate;
+        }
+
+        /* The central black circle inside the pill */
+        .kinetic-element::before {
+            content: '';
+            width: clamp(1.5rem, 3.5vw, 4.5rem); /* Proportional circle */
+            height: clamp(1.5rem, 3.5vw, 4.5rem);
+            background-color: #000;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Adapt width for top row vs bottom row */
+        #row1-kinetic { width: clamp(6.5rem, 15vw, 20rem); }
+        #row2-kinetic { width: clamp(8.5rem, 20vw, 26rem); }
+
+        /* Animation Keyframes: Back and Forth Sway */
+        @keyframes swingingPill {
+            0% { transform: translateX(-5px); }
+            100% { transform: translateX(5px); }
+        }
+
+        /* 3. MAINTENANCE LYRICS-STYLE SLIDING TEXT */
+        /* Inspired by the bottom scroll section of Apple Music */
+        .maintenance-ticker-container {
+            width: 100%;
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 0;
+            overflow: hidden; /* Only show active text */
+        }
+
+        .ticker-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2vh;
+            animation: slideUp 8s steps(2) infinite; /* Switch between two lines */
+        }
+
+        .ticker-item {
+            font-family: var(--lyrics-font);
+            font-size: clamp(1rem, 2.5vw, 2rem);
+            font-weight: 600;
+            color: #000;
+            height: 4vh; /* Match step distance */
+            line-height: 4vh;
+            text-align: center;
+            padding: 0 10vw;
+            opacity: 0.1; /* Inactive line state */
+        }
+
+        /* Step-based slide animation to highlight active "lyric" */
+        @keyframes slideUp {
+            0%, 45% { transform: translateY(0%); }
+            45% { .ticker-item:nth-child(1) { opacity: 1; }} /* Highlight first */
+            50%, 95% { transform: translateY(-33.33%); } /* Advance to second line */
+            95% { .ticker-item:nth-child(2) { opacity: 1; }} /* Highlight second */
+            100% { transform: translateY(-66.66%); } /* Prepare loop */
+        }
+
+        /* JavaScript logic will update the active line opacity */
+    </style>
+</head>
+<body>
+
+    <!-- 1. KINETIC NAME ANIMATION STRUCTURE -->
+    <main class="name-container">
+        <!-- Row 1: ADI + [ Kinetic Element ] + TYA -->
+        <div class="name-row">
+            <span class="name-text">AD</span>
+            <div id="row1-kinetic" class="kinetic-element"></div>
+            <span class="name-text">TYA</span>
+        </div>
+        <!-- Row 2: [ Kinetic Element ] + KUMAR -->
+        <div class="name-row">
+            <div id="row2-kinetic" class="kinetic-element"></div>
+            <span class="name-text">KUMAR</span>
+        </div>
+    </main>
+
+    <!-- 2. MAINTENANCE LYRICS-STYLE SCROLLER -->
+    <div class="maintenance-ticker-container">
+        <div class="ticker-wrapper" id="tickerWrapper">
+            <!-- Lyrics lines that will automatically switch and highlight -->
+            <div class="ticker-item active-lyric">Site is currently under maintenance.</div>
+            <div class="ticker-item">Will return shortly with exciting updates!</div>
+            <div class="ticker-item">We will be right back, Aditya!</div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript logic for managing active "lyric" line highlights
+        const tickerWrapper = document.getElementById('tickerWrapper');
+        const items = document.querySelectorAll('.ticker-item');
+        let currentItem = 0;
+
+        function updateTickerHighlight() {
+            // Remove active class from all
+            items.forEach(item => {
+                item.style.opacity = '0.1';
+                item.style.transition = 'opacity 0.6s ease';
+            });
+
+            // Add active class to current
+            items[currentItem].style.opacity = '1';
+
+            currentItem = (currentItem + 1) % items.length; // Advance and loop
+        }
+
+        // Initialize and run the function every time the CSS animation steps (every 4 seconds)
+        updateTickerHighlight();
+        setInterval(updateTickerHighlight, 4000); 
+    </script>
+</body>
+</html>
+
